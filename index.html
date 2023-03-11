@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWE_HW2</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <header>
+        <h1 style="text-align: center; padding-bottom: 1%;"><u>SWE Homework 2 - Dylan Wilmoth</u></h1>
+
+        <div class="add-user">
+            <h1 class = "title">Add new User</h1>
+            <form id="add-user-form">
+                <input 
+                    type="text"
+                    id="add-user-first_name"
+                    placeholder="First name" />
+                <input 
+                    type="text"
+                    id="add-user-last_name"
+                    placeholder="Last name" />
+                <input 
+                    type="text"
+                    id="add-user-id"
+                    placeholder="ID" />
+                <input 
+                    type="text"
+                    id="add-user-points"
+                    placeholder="Points" />
+                <input
+                    type="submit"
+                    id="add-user-submit"
+                    value="Add User" />
+            </form>
+        </div>
+
+        <div class="find-points-user">
+            <h1 class = "title">Find User</h1>
+            <form id="find-user-form">
+                <input 
+                    type="text"
+                    id="find-user-id"
+                    placeholder="ID" />
+                <input
+                    type="submit"
+                    id="find-user-submit"
+                    value="Find User" />
+            </form>
+        </div>
+
+        <div class="delete-user">
+            <h1 class = "title">Delete User</h1>
+            <form id="delete-user-form">
+                <input 
+                    type="text"
+                    id="delete-user-id"
+                    placeholder="ID" />
+                <input
+                    type="submit"
+                    id="delete-user-submit"
+                    value="Delete User" />
+            </form>
+        </div>
+
+        <div class="find-points-user">
+            <h1 class = "title">Find Points</h1>
+            <form id="points-form">
+                <input 
+                    type="text"
+                    id="points-user-first_name"
+                    placeholder="First Name" />
+                <input 
+                    type="text"
+                    id="points-user-last_name"
+                    placeholder="Last Name" />
+                <input
+                    type="submit"
+                    id="points-user-submit"
+                    value="Find points" />
+            </form>
+        </div>
+
+    </header>
+    
+    <main>
+        <section class="user-list">
+            <h2>User</h2>
+
+            <div id="Users">
+                
+                <div class="User">
+                    <p class = "name">Dylan Wilmoth</p>
+                    <p class = "id">1337</p>
+                    <p class = "points">15</p>
+                </div>
+                
+
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
