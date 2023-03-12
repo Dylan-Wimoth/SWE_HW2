@@ -23,9 +23,8 @@ function removeTable(){
     db.run(sql)
 }
 
-
 // Insert Data into database
-function addUser(first_name,last_name,id,points){
+function addUser(db, first_name,last_name,id,points){
     sql = 'INSERT INTO users(first_name,last_name,id,points) VALUES (?,?,?,?)'
     db.run(sql,[first_name,last_name,id,points],(err)=>{
         if (err){
@@ -35,7 +34,7 @@ function addUser(first_name,last_name,id,points){
 }
 
 // Delete User
-function deleteUser(id){
+function deleteUser(db, id){
     sql = 'DELETE FROM users WHERE id=?';
     db.run(sql,[id],(err)=>{
         if (err){
@@ -45,7 +44,7 @@ function deleteUser(id){
 }
 
 // Query the data
-function queryData(){
+function queryData(db){
     sql = 'SELECT * FROM users';
     db.all(sql,[],(err,rows) => {
         if (err){

@@ -12,7 +12,7 @@ addUserForm.addEventListener("submit", (event) => {
     let id = document.getElementById("add-user-id").value;
     let points = document.getElementById("add-user-points").value;
 
-    // Makes sure data is filled into box
+    // Makes sure data is correct
     if (first_name == ""){
         console.log("Missing first name")
         return;
@@ -40,6 +40,7 @@ addUserForm.addEventListener("submit", (event) => {
         body: JSON.stringify(data)
     }
 
+    // Sends Post
     fetch('/add', options);
     
     // Deletes data within form
@@ -51,9 +52,11 @@ addUserForm.addEventListener("submit", (event) => {
 })
 
 findUserForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault(); //Stops page from refreshing after every submit
 
+    // Data from form
     let id = document.getElementById("find-user-id").value;
+    // Makes sure data is correct
     if (id == ""){
         console.log("Missing id")
         return;
@@ -69,16 +72,20 @@ findUserForm.addEventListener("submit", (event) => {
         body: JSON.stringify(data)
     }
 
+    // Sends Post
     fetch('/find', options);
 
+    // Deletes data within form
     document.getElementById("find-user-id").value = null;
     console.log(`${id}`)
 })
 
 deleteUserForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault(); //Stops page from refreshing after every submit
 
+    // Data from form
     let id = document.getElementById("delete-user-id").value;
+    // Makes sure data is correct
     if (id == ""){
         console.log("Missing id")
         return;
@@ -94,19 +101,20 @@ deleteUserForm.addEventListener("submit", (event) => {
         body: JSON.stringify(data)
     }
 
+    // Sends Post
     fetch('/delete', options);
 
+    // Deletes data within form
     document.getElementById("delete-user-id").value = null;
-
-    console.log(`${id}`)
 })
 
 findPointsForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault(); //Stops page from refreshing after every submit
 
+    // Data from form
     let first_name = document.getElementById("points-user-first_name").value;
     let last_name = document.getElementById("points-user-last_name").value;
-
+    // Makes sure data is correct
     if (first_name == ""){
         console.log("Missing first name")
         return;
@@ -126,10 +134,10 @@ findPointsForm.addEventListener("submit", (event) => {
         body: JSON.stringify(data)
     }
 
+    // Sends Post
     fetch('/points', options);
 
-    console.log(`${first_name} ${last_name}`)
+    // Deletes data within form
     document.getElementById("points-user-first_name").value = null;
     document.getElementById("points-user-last_name").value = null;
-
 })
