@@ -1,11 +1,15 @@
 const sqlite3 = require('sqlite3').verbose();
+
 let sql;
 
-const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE,(err)=>{
-    if (err){
-        return console.error(err.message);
-    }
-});
+function connectToDB(){
+    const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE,(err)=>{
+        if (err){
+            return console.error(err.message);
+        }
+    });
+}
+
 
 // Create table
 function createTable(){
@@ -52,3 +56,10 @@ function queryData(){
         })
     })
 }
+
+exports.connectToDB = connectToDB
+exports.createTable = createTable
+exports.removeTable = removeTable
+exports.addUser = addUser
+exports.deleteUser = deleteUser
+exports.queryData = queryData
