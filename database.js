@@ -43,22 +43,8 @@ function deleteUser(db, id){
     })
 }
 
-// Query the data
-function queryData(db){
-    sql = 'SELECT * FROM users';
-    db.all(sql,[],(err,rows) => {
-        if (err){
-            return console.error(err.message);
-        }
-        rows.forEach((row) => {
-            console.log(row);
-        })
-    })
-}
-
 exports.connectToDB = connectToDB
 exports.createTable = createTable
 exports.removeTable = removeTable
 exports.addUser = addUser
 exports.deleteUser = deleteUser
-exports.queryData = queryData

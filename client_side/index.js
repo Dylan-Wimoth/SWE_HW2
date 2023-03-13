@@ -3,6 +3,26 @@ const findUserForm = document.getElementById("find-user-form")
 const deleteUserForm = document.getElementById("delete-user-form")
 const findPointsForm = document.getElementById("points-form")
 
+//When page is loaded/refreshed
+window.addEventListener('load', () => {
+    const options = {
+        method: 'GET'
+    }
+
+    // Fetches data of each user from database
+    fetch('/users')
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+        }).then(data => {
+            if(data) {
+                console.log(data);
+            }
+        }).catch(err => console.error(err));
+})
+
+//ADD USER
 addUserForm.addEventListener("submit", (event) => {
     event.preventDefault(); //Stops page from refreshing after every submit
 
@@ -51,35 +71,7 @@ addUserForm.addEventListener("submit", (event) => {
 
 })
 
-findUserForm.addEventListener("submit", (event) => {
-    event.preventDefault(); //Stops page from refreshing after every submit
-
-    // Data from form
-    let id = document.getElementById("find-user-id").value;
-    // Makes sure data is correct
-    if (id == ""){
-        console.log("Missing id")
-        return;
-    }
-
-    // Prepares data to be posted
-    const data = {id}
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }
-
-    // Sends Post
-    fetch('/find', options);
-
-    // Deletes data within form
-    document.getElementById("find-user-id").value = null;
-    console.log(`${id}`)
-})
-
+//DELETE USER
 deleteUserForm.addEventListener("submit", (event) => {
     event.preventDefault(); //Stops page from refreshing after every submit
 
@@ -94,7 +86,7 @@ deleteUserForm.addEventListener("submit", (event) => {
     // Prepares data to be posted
     const data = {id}
     const options = {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -108,6 +100,37 @@ deleteUserForm.addEventListener("submit", (event) => {
     document.getElementById("delete-user-id").value = null;
 })
 
+//FIND USER
+findUserForm.addEventListener("submit", (event) => {
+    event.preventDefault(); //Stops page from refreshing after every submit
+
+    // Data from form
+    let id = document.getElementById("find-user-id").value;
+    // Makes sure data is correct
+    if (id == ""){
+        console.log("Missing id")
+        return;
+    }
+
+    // Prepares data to be posted
+    const data = {id}
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+
+    // Sends Post
+    fetch('/find', options);
+
+    // Deletes data within form
+    document.getElementById("find-user-id").value = null;
+    console.log(`${id}`)
+})
+
+//GET USER POINTS
 findPointsForm.addEventListener("submit", (event) => {
     event.preventDefault(); //Stops page from refreshing after every submit
 
@@ -127,7 +150,7 @@ findPointsForm.addEventListener("submit", (event) => {
     // Prepares data to be posted
     const data = {first_name, last_name}
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
