@@ -61,22 +61,22 @@ function generateTable() {
                             
                             if (j == 0){
                                 const cellValue = document.createTextNode(data[i-1]["first_name"]);
-                                cell.setAttribute('class', 'row-' + i - 1); // Creates a unique class for each row
+                                cell.setAttribute('id', 'row-' + (i - 1) + j); // Creates a unique class for each row
                                 cell.appendChild(cellValue);
                                 row.appendChild(cell);
                             } else if (j == 1) {
                                 const cellValue = document.createTextNode(data[i-1]["last_name"]);
-                                cell.setAttribute('class', 'row-' + i - 1);
+                                cell.setAttribute('id', 'row-' + (i - 1) + j);
                                 cell.appendChild(cellValue);
                                 row.appendChild(cell);
                             } else if (j == 2) {
                                 const cellValue = document.createTextNode(data[i-1]["id"]);
-                                cell.setAttribute('class', 'row-' + i - 1);
+                                cell.setAttribute('id', 'row-' + (i - 1) + j);
                                 cell.appendChild(cellValue);
                                 row.appendChild(cell);
                             } else {
                                 const cellValue = document.createTextNode(data[i-1]["points"]);
-                                cell.setAttribute('class', 'row-' + i - 1);
+                                cell.setAttribute('id', 'row-' + (i - 1) + j);
                                 cell.appendChild(cellValue);
                                 row.appendChild(cell);
                             }

@@ -41,8 +41,6 @@ app.get('/users', function(req, res) {
         // Sends data of each user to frontend
         res.status(200).send(rows)
     })
-
-    
 });
 
 // Sends index.html
@@ -63,8 +61,15 @@ app.delete('/delete', (req,res) => {
     myDatabase.deleteUser(db, req.body["id"]);
 });
 
-//Listens for find GET request from client
+// Listens for find GET request from client
+// Sends back current users in database
 app.get('/find', (req,res) => {
-    console.log("finding");
-    console.log(req.body);
+    sql = 'SELECT * FROM users';
+    db.all(sql,[req.body["id"]],(err,rows) => {
+        if (err){
+            return console.error(err.message);
+        }
+        // Sends data of each user to frontend
+        res.status(200).send(rows)
+    })
 });

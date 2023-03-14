@@ -120,3 +120,7 @@ table{
     text-decoration: underline;
     font-weight: bold;
 }
+
+.found-row{
+    background-color: var(--orange);
+}
