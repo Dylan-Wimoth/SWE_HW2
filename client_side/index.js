@@ -1,31 +1,16 @@
 const addUserForm = document.getElementById("add-user-form")
 const findUserForm = document.getElementById("find-user-form")
 const deleteUserForm = document.getElementById("delete-user-form")
-const findPointsForm = document.getElementById("points-form")
 
-//When page is loaded/refreshed
+import generateTable from "./Component.js";
+
+//When page is loaded/refreshed, create a table with all current users
 window.addEventListener('load', () => {
-    const options = {
-        method: 'GET'
-    }
-
-    // Fetches data of each user from database
-    fetch('/users')
-        .then(response => {
-            if(response.ok) {
-                return response.json();
-            }
-        }).then(data => {
-            if(data) {
-                console.log(data);
-            }
-        }).catch(err => console.error(err));
+    generateTable();
 })
 
 //ADD USER
 addUserForm.addEventListener("submit", (event) => {
-    event.preventDefault(); //Stops page from refreshing after every submit
-
     // Data from form
     let first_name = document.getElementById("add-user-first_name").value;
     let last_name = document.getElementById("add-user-last_name").value;
@@ -73,8 +58,6 @@ addUserForm.addEventListener("submit", (event) => {
 
 //DELETE USER
 deleteUserForm.addEventListener("submit", (event) => {
-    event.preventDefault(); //Stops page from refreshing after every submit
-
     // Data from form
     let id = document.getElementById("delete-user-id").value;
     // Makes sure data is correct
@@ -128,39 +111,4 @@ findUserForm.addEventListener("submit", (event) => {
     // Deletes data within form
     document.getElementById("find-user-id").value = null;
     console.log(`${id}`)
-})
-
-//GET USER POINTS
-findPointsForm.addEventListener("submit", (event) => {
-    event.preventDefault(); //Stops page from refreshing after every submit
-
-    // Data from form
-    let first_name = document.getElementById("points-user-first_name").value;
-    let last_name = document.getElementById("points-user-last_name").value;
-    // Makes sure data is correct
-    if (first_name == ""){
-        console.log("Missing first name")
-        return;
-    }
-    if (last_name == ""){
-        console.log("Missing last name")
-        return;
-    }
-
-    // Prepares data to be posted
-    const data = {first_name, last_name}
-    const options = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }
-
-    // Sends Post
-    fetch('/points', options);
-
-    // Deletes data within form
-    document.getElementById("points-user-first_name").value = null;
-    document.getElementById("points-user-last_name").value = null;
 })

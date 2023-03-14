@@ -1,5 +1,35 @@
+:root {
+    --orange: #e27d60;
+    --blue: #85cdca;
+    --sand: #e8a87c;
+    --pink: #c38d9d;
+    --green: #46beac;
+}
+
+body{
+    background: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
 .title {
     text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.add-user{
+    padding-top: 1px;
+    padding-bottom: 10px;
+}
+
+.find-user{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.delete-user{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #add-user-form {
@@ -16,4 +46,77 @@
 
 #points-form {
     text-align: center;
+}
+
+.users-table{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modified from https://www.w3schools.com/css/css3_buttons.asp */
+.button {
+    background-color: var(--sand); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+}
+
+
+/* Modified from https://www.w3schools.com/css/css_form.asp */
+input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: var(--green)
+  }
+
+/* Modified from https://www.w3schools.com/css/css3_buttons.asp */
+#delete-user-submit:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#find-user-submit:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#add-user-submit:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.user-title{
+    font-size: 30px;
+    text-align: center;
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 50%;
+    height: 50%;
+}
+
+.table-title{
+    text-decoration: underline;
+    font-weight: bold;
 }

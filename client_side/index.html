@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <h1 style="text-align: center; padding-bottom: 1%;"><u>SWE Homework 2 - Dylan Wilmoth</u></h1>
+        <h1 style="text-align: center;"><u>SWE Homework 2 - Dylan Wilmoth</u></h1>
 
         <div class="add-user">
             <h1 class = "title">Add new User</h1>
@@ -19,37 +19,46 @@
                 <input 
                     type="text"
                     id="add-user-first_name"
+                    class = "input-bar"
                     placeholder="First name" />
                 <input 
                     type="text"
                     id="add-user-last_name"
+                    class = "input-bar"
                     placeholder="Last name" />
                 <input 
                     type="text"
                     id="add-user-id"
+                    class = "input-bar"
                     placeholder="ID" />
                 <input 
                     type="text"
                     id="add-user-points"
+                    class = "input-bar"
                     placeholder="Points" />
+                <div class = "submit-buttons">
                 <input
                     type="submit"
                     id="add-user-submit"
-                    value="Add User" />
+                    class="button"
+                    value="Add User" /></div>
             </form>
         </div>
 
-        <div class="find-points-user">
+        <div class="find-user">
             <h1 class = "title">Find User</h1>
             <form id="find-user-form">
                 <input 
                     type="text"
                     id="find-user-id"
+                    class = "input-bar"
                     placeholder="ID" />
+                <div class = "submit-buttons">
                 <input
                     type="submit"
                     id="find-user-submit"
-                    value="Find User" />
+                    class="button"
+                    value="Find User" /></div>
             </form>
         </div>
 
@@ -59,37 +68,21 @@
                 <input 
                     type="text"
                     id="delete-user-id"
+                    class = "input-bar"
                     placeholder="ID" />
+                <div class = "submit-buttons">
                 <input
                     type="submit"
                     id="delete-user-submit"
-                    value="Delete User" />
+                    class="button"
+                    value="Delete User" /></div>
             </form>
         </div>
-
-        <div class="find-points-user">
-            <h1 class = "title">Find Points</h1>
-            <form id="points-form">
-                <input 
-                    type="text"
-                    id="points-user-first_name"
-                    placeholder="First Name" />
-                <input 
-                    type="text"
-                    id="points-user-last_name"
-                    placeholder="Last Name" />
-                <input
-                    type="submit"
-                    id="points-user-submit"
-                    value="Find points" />
-            </form>
-        </div>
-
     </header>
     
     <main>
         <section class="user-list">
-            <h2>User</h2>
+            <h2 class="title">Users</h2>
 
             <div id="Users">
                 
@@ -105,5 +98,6 @@
     </main>
 
     <script type = "module" src="index.js"></script>
+    <script type = "module" src="Component.js"></script>
 </body>
 </html>

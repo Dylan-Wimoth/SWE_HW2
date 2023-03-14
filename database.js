@@ -2,28 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 let sql;
 
-function connectToDB(){
-    const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE,(err)=>{
-        if (err){
-            return console.error(err.message);
-        }
-    });
-}
-
-
-// Create table
-function createTable(){
-    sql = 'CREATE TABLE users(first_name,last_name,id,points)'
-    db.run(sql);
-}
-
-// Remove Table
-function removeTable(){
-    sql = "DROP TABLE users"
-    db.run(sql)
-}
-
-// Insert Data into database
+// Inserts user into database
 function addUser(db, first_name,last_name,id,points){
     sql = 'INSERT INTO users(first_name,last_name,id,points) VALUES (?,?,?,?)'
     db.run(sql,[first_name,last_name,id,points],(err)=>{
@@ -33,7 +12,7 @@ function addUser(db, first_name,last_name,id,points){
     })
 }
 
-// Delete User
+// Deletes User from database
 function deleteUser(db, id){
     sql = 'DELETE FROM users WHERE id=?';
     db.run(sql,[id],(err)=>{
@@ -43,8 +22,5 @@ function deleteUser(db, id){
     })
 }
 
-exports.connectToDB = connectToDB
-exports.createTable = createTable
-exports.removeTable = removeTable
 exports.addUser = addUser
 exports.deleteUser = deleteUser
